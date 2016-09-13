@@ -1,0 +1,16 @@
+[Unit]
+Description=<%= @name %>
+<% @unit_options.each do |key,value| -%>
+<%= key %>=<%= value %>
+<% end -%>
+
+[Service]
+<% @service_options.each do |key,value| -%>
+<%= key %>=<%= value %>
+<% end -%>
+
+[Install]
+WantedBy=multi-user.target
+<% @install_options.each do |key,value| -%>
+<%= key %>=<%= value %>
+<% end -%>

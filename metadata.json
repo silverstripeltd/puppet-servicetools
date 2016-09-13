@@ -1,0 +1,16 @@
+{
+      "name": "silverstripe-servicetools",
+      "version": "1.0",
+      "author": "SilverStripe Ltd",
+      "license": "BSD-3-Clause",
+      "summary": "Standardised installation of arbitrary binaries",
+      "source": "https://github.com/silverstripe/puppet-servicetools",
+      "operatingsystem_support": [
+		  {
+			  "operatingsystem": "Debian",
+			  "operatingsystemrelease": [
+				  "8"
+			  ]
+		  }
+       ]
+    }
