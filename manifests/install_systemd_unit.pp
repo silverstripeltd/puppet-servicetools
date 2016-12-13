@@ -10,6 +10,7 @@ define servicetools::install_systemd_unit (
 		content => template("${module_name}/systemd_service.erb")
 	} -> service { $name:
 		ensure => $service_ensure,
-		enable => $service_enable
+		enable => $service_enable,
+		require => Exec['systemctl-daemon-reload'],
 	}
 }
