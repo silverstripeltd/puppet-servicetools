@@ -27,3 +27,7 @@ Now you can use hiera to provision arbitrary resources:
 		  RestartSec: "5"
 		service_ensure: "stopped"
 		service_enable: true
+
+## Running tests
+
+Change directory to the project root, then run `bundle exec rake spec SPEC_OPTS='--format documentation'`

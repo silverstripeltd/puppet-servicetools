@@ -1,0 +1,9 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.2-jessie-node-browsers
+    steps:
+      - checkout
+      - run: bundle install
+      - run: rake spec

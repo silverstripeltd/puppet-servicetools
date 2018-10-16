@@ -1,0 +1,38 @@
+[Unit]
+Description=<%= @real_name %>
+<%- if @real_name =~ /^([A-Za-z0-9_-]+)(\.)(timer)$/ -%>
+Requires=<%= @timer_service %>
+<%- end -%>
+<%- if !@unit_options.empty? -%>
+<% @unit_options.each do |key,value| -%>
+<%= key %>=<%= value %>
+<%- end -%>
+<%- end -%>
+
+<%- if !@service_options.empty? -%>
+[Service]
+<% @service_options.each do |key,value| -%>
+<%= key %>=<%= value %>
+<%- end -%>
+<%- end -%>
+
+[Install]
+WantedBy=multi-user.target
+<%- if @real_name =~ /^([A-Za-z0-9_-]+)(\.)(timer)$/ -%>
+WantedBy=timers.target
+<%- end -%>
+<%- if !@install_options.empty? -%>
+<% @install_options.each do |key,value| -%>
+<%= key %>=<%= value %>
+<%- end -%>
+<%- end -%>
+
+<%- if @real_name =~ /^([A-Za-z0-9_-]+)(\.)(timer)$/ -%>
+[Timer]
+Unit=<%= @timer_service %>
+<%- if !@timer_options.empty? -%>
+<% @timer_options.each do |key,value| -%>
+<%= key %>=<%= value %>
+<%- end -%>
+<%- end -%>
+<%- end -%>
