@@ -1,0 +1,10 @@
+fixtures:
+  symlinks:
+    servicetools: "#{source_dir}"
+  forge_modules:
+    stdlib:
+      repo: "puppetlabs/stdlib"
+      ref: "4.25.1"
+    systemd:
+      repo: "camptocamp-systemd"
+      ref: "0.4.0"
