@@ -1,11 +1,12 @@
 define servicetools::install_systemd_unit (
-	$unit_options = {},				# Arguments to pass to the systemd [Unit] section of template
-	$service_options = {},			# Arguments to pass to the systemd [Service] section of template
-	$install_options = {},			# Arguments to pass to the systemd [Install] section of template
-	$timer_options = {},			# Arguments to pass to the systemd [Timer] section of the timer template
+	$unit_options = {},						# Arguments to pass to the systemd [Unit] section of template
+	$service_options = {},					# Arguments to pass to the systemd [Service] section of template
+	$install_options = {},					# Arguments to pass to the systemd [Install] section of template
+	$timer_options = {},					# Arguments to pass to the systemd [Timer] section of the timer template
+	$wantedby_target = "multi-user.target", # Value of WantedBy. Defaults to multi-user.target
 	$manage_service = true,			# Whether the service resource should be managed
-	$service_ensure = "running",	# State of the service after installed
-	$service_enable = true			# Enabled state of the service after installed
+	$service_ensure = "running",			# State of the service after installed
+	$service_enable = true					# Enabled state of the service after installed
 ) {
 
 	if $name =~ /^([A-Za-z0-9_-]+)(\.)(timer)$/ {
