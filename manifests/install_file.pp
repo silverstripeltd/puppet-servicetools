@@ -3,7 +3,8 @@ define servicetools::install_file (
 	$target = undef,
 	$mode = "0755",
 	$owner = "root",
-	$group = "root"
+	$group = "root",
+	$env_options = []
 ) {
 	if $target == undef {
 		$real_target = $name
@@ -14,7 +15,8 @@ define servicetools::install_file (
 	exec { "download_${name}":
 		cwd => "/var/tmp",
 		command => "/usr/bin/wget ${source} -O ${real_target}",
-		creates => $real_target
+		creates => $real_target,
+		environment => $env_options
 	} -> file { $real_target:
 		mode => $mode,
 		owner => $owner,
