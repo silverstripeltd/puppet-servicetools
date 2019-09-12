@@ -17,7 +17,7 @@ Requires=<%= @timer_service %>
 <%- end -%>
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=<%= @wantedby_target %>
 <%- if @real_name =~ /^([A-Za-z0-9_-]+)(\.)(timer)$/ -%>
 WantedBy=timers.target
 <%- end -%>
