@@ -3,6 +3,7 @@ define servicetools::install_systemd_unit (
 	$service_options = {},			# Arguments to pass to the systemd [Service] section of template
 	$install_options = {},			# Arguments to pass to the systemd [Install] section of template
 	$timer_options = {},			# Arguments to pass to the systemd [Timer] section of the timer template
+	$manage_service = true,			# Whether the service resource should be managed
 	$service_ensure = "running",	# State of the service after installed
 	$service_enable = true			# Enabled state of the service after installed
 ) {
@@ -27,7 +28,7 @@ define servicetools::install_systemd_unit (
 		content => template("${module_name}/systemd_unit.erb"),
 	}
 
-	if !empty($service) {
+	if !empty($service) and $manage_service == true {
 		service { $service:
 			ensure => $service_ensure,
 			enable => $service_enable,
