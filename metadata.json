@@ -7,8 +7,8 @@
   "source": "https://github.com/silverstripe/puppet-servicetools",
   "dependencies": [
     {
-      "name": "camptocamp/systemd",
-      "version_requirement": ">= 0.4.0 < 3.0.0"
+      "name": "puppet/systemd",
+      "version_requirement": ">= 0.4.0"
     }
   ],
   "project_page": "https://github.com/silverstripe/puppet-servicetools",
